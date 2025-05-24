@@ -4,6 +4,39 @@ void main() {
   runApp(const MyApp());
 }
 
+class CustomDrawer extends StatelessWidget{
+  const CustomDrawer({super.key});
+
+  @override
+ Widget build(BuildContext context){
+   return Drawer(child: ListView(
+     padding: EdgeInsets.zero,
+     children: <Widget>[
+       const DrawerHeader(
+           decoration: BoxDecoration(color: Colors.red),
+           child: Text('Welcome, X Singh')),
+       ListTile(
+         trailing: const Icon(Icons.home_filled,color: Colors.brown),
+         title: const Text('Home'),
+         onTap: () {
+
+           // Update the state of the app.
+           // ...
+         },
+       ),
+       ListTile(
+         trailing: const Icon(Icons.info,color: Colors.orange,),
+
+         title: const Text('About'),
+         onTap: () {
+           // Update the state of the app.
+           // ...
+         },
+       ),
+     ],
+   ));
+ }
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -90,41 +123,16 @@ class _MyHomePageState extends State<MyHomePage> {
             return IconButton(
               padding: EdgeInsets.all(10),
               icon: const Icon(Icons.menu),
-              onPressed: () {},
-              onLongPress: (){
+              onPressed: () {
                 Scaffold.of(context).openDrawer();
 
               },
+              // onLongPress: (){},
             );
           },
         ),
       ),
-      drawer: Drawer(child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Welcome, Shivam Singh')),
-          ListTile(
-            trailing: const Icon(Icons.home_filled,color: Colors.brown),
-            title: const Text('Home'),
-            onTap: () {
-
-              // Update the state of the app.
-              // ...
-            },
-          ),
-          ListTile(
-            trailing: const Icon(Icons.info,color: Colors.orange,),
-
-            title: const Text('About'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-        ],
-      ),),
+      drawer: CustomDrawer(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
