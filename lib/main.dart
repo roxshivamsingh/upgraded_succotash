@@ -106,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: BoxDecoration(color: Colors.blue),
               child: Text('Welcome, Shivam Singh')),
           ListTile(
+            trailing: const Icon(Icons.home_filled,color: Colors.brown),
             title: const Text('Home'),
             onTap: () {
 
@@ -114,6 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           ListTile(
+            trailing: const Icon(Icons.info,color: Colors.orange,),
+
             title: const Text('About'),
             onTap: () {
               // Update the state of the app.
