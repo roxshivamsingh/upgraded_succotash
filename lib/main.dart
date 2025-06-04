@@ -1,44 +1,11 @@
 import 'package:flutter/material.dart';
-
+import './components/CustomDrawer.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(const RootApp());
 }
 
-class CustomDrawer extends StatelessWidget{
-  const CustomDrawer({super.key});
-
-  @override
- Widget build(BuildContext context){
-   return Drawer(child: ListView(
-     padding: EdgeInsets.zero,
-     children: <Widget>[
-       const DrawerHeader(
-           decoration: BoxDecoration(color: Colors.red),
-           child: Text('Welcome, X Singh')),
-       ListTile(
-         trailing: const Icon(Icons.home_filled,color: Colors.brown),
-         title: const Text('Home'),
-         onTap: () {
-
-           // Update the state of the app.
-           // ...
-         },
-       ),
-       ListTile(
-         trailing: const Icon(Icons.info,color: Colors.orange,),
-
-         title: const Text('About'),
-         onTap: () {
-           // Update the state of the app.
-           // ...
-         },
-       ),
-     ],
-   ));
- }
-}
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RootApp extends StatelessWidget {
+  const RootApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -119,13 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         leading: Builder(
           builder: (context) {
-
             return IconButton(
               padding: EdgeInsets.all(10),
               icon: const Icon(Icons.menu),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
-
               },
               // onLongPress: (){},
             );
